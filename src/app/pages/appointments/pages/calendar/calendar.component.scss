@@ -1,0 +1,17 @@
+.header {
+  height: 150px;
+  background-color: #eeee;
+  border-bottom: #cbcbcb solid 1px
+}
+
+.main {
+  display: flex;
+
+  .side-month-calendar {
+    width: 20%;
+  }
+
+  .reservation-calendar {
+    width: 80%;
+  }
+}

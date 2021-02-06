@@ -1,0 +1,19 @@
+<div class="header">
+
+</div>
+<div class="main">
+  <section class="side-month-calendar">
+    <div class="month-calendar">
+      <app-month-calendar
+        [currentDate]="currentDate$ | async"
+        (selectDay)="selectDay($event)"
+      ></app-month-calendar>
+    </div>
+  </section>
+  <section class="main-reservation-calendar">
+    <div class="reservation-calendar">
+
+    </div>
+  </section>
+
+</div>

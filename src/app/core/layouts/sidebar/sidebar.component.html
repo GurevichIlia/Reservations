@@ -1,0 +1,33 @@
+<div class="flex flex-row">
+  <div class="sidebar flex flex-col">
+    <div class="menu-header">Header</div>
+    <ul class="menu-list">
+      <li class="menu-item cursor-pointer" *ngFor="let item of menuList$ | async">
+        <div class="flex items-center" (click)="item.toggle()">
+          <span class="icon" [innerHTML]="item.icon"></span>
+          <a [routerLink]="item.route" class="label">{{item.label}}</a>
+          <i
+            *ngIf="item.hasChildren"
+            [ngClass]="{'transform rotate-180': item.isOpen}"
+            class="fas fa-chevron-down transform ml-auto"
+            ></i>
+        </div>
+
+
+        <ul class="menu-item-children-list" *ngIf="item.hasChildren" [ngClass]="{'open': item.isOpen}">
+          <li class="menu-item children-item" *ngFor="let subItem of item.children">
+            <a [routerLink]="item.route + '/' + subItem.route" routerLinkActive="router-link-active">{{subItem.label}}</a>
+
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </div>
+  <div class="content">
+
+    <ng-content></ng-content>
+
+  </div>
+</div>
